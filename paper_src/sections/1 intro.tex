@@ -1,0 +1,36 @@
+\section{Introduction}
+\label{sec:intro}
+The background to this idea.
+
+Gaming culture has grown into a phenomenon that has become a part of mainstream culture and it is not at the point where several generations have grown up playing video games. This introduces several problems for game developers. 
+The goal of most developers is to create an inviting game that people will enjoy regardless of skill level and competency at video games, at the same time there is a large portion of the community that is skilled and wants a continually increasing 
+challenge in their experience. 
+
+In this situation, the word competitive is used to describe the models ability to remain at a skill level close to the player, and not simply the best action to take in a given moment.
+
+One game in specific exemplifies this experience. Starcraft 2 is an real-time strategy game that tests not only the wit of a player or agent, but the ability to outperform physically, in performing as many actions as possible per second that assist in winning
+as well as outsmarting their opponent. Obviously this gives the perfect environment for reinforcement learning, and in essence a perfect test for a competitive model that will attempt to match the opponents skill to help ease that learning curve that the genre
+of RTS is well known for. 
+
+
+\subsection{Hypothesis} 
+\label{subsec:Hypothesis}
+The goal of this research is to test the hypothesis that a trained Model can be competitive rather then just attempting to make the best decisions possible to win. The issues predicted with this is that a model will still need to be as highly trained as a model
+capable of beating the best players, but also know game states well enough to not select an action that would crush those players that are not skilled. Typically trained reinforcement learning agents have a cap to the actions they can take, which would end up much 
+higher then that of the average person, around 180 actions per minute\cite{vinyals2017starcraft}. Meaning either that has to also scale with player skill, or some actions should be wasted. Either way, the research presented here will be focused on how to design
+a model that can compete with a wider skill arrangement then currently available. 
+
+The test here will be to provide an agent that's win ratio against several opponents of differing skill level will be close to 50 percent. This will be tested by training an agent then having it compete against several opponents trying to obtain around 50 percent
+win ratio regardless of opponent over a course of 50 games. The rationale behind this, is that if an agent is truly competitive and not purely trying to win, then it should lose about the same amount as it wins to provide an experience of learning and improving
+with a human player regardless of skill. 
+
+
+\subsection{Theory} 
+\label{subsec:Theory}
+Typically a model follows being trained on an environment and selecting the best possible action given the current state of the game. The problem with that philosophy in this situation is that the player agent may not be taking the best possible action. In order
+to give the player a chance to compete and be challenged, the theory is that the model should select the "average" action. In order to have an average action that is still competitive to any player, that model must still be capable of performing the best possible
+action. This is both a boon and a curse, in theory. That means the training of a model should be the exact same, but instead of selecting the highest scoring action, the model should select the lowest absolute value, on a normal scale of reward being from -1 to 1. 
+If it selects the reward of closest to zero, the lowest absolute value, in theory that action would be the most likely to lead to a tie. Since games in Starcraft 2 rarely end up in a tie, in theory this means that it will be a close game. 
+
+Other theories to go with the hypothesis that will be tested to add to the novelty of how this agent is being piloted, will be not just selecting the closest value to 0, not positive or negative, in the model, but also checking out other possible options, such As
+half the best, three quarters the best, and the second best to see how the agent performs with those actions.

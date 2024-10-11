@@ -1,0 +1,30 @@
+\section{Training Methodology}
+\label{sec:Training Methodology}
+
+
+There are multiple differing methods to training a model, from offline to online, meaning a model that is fully trained and ready to compete vs a model that is learning as it goes and continues to update. Currently the highest performing model is trained in an
+offline manner on hundreds of thousands of replays\cite{starcraft_unplugged}. Unfortunately, that method is not plausible given the current time and computational restraints, so a more efficient model based on online training will be used as a proof of concept. 
+Even so, this will not be an easy task to replicate as the computational expense is far to high, so the proof of concept will be limited. The model that will be the basis of testing uses a hierarchical architecture to learn and solve problems without a usage offline
+raw data and human replays, such as Alphastar, that in some ways eliminate the true intention of reinforcement learning, even if it does solve the problem\cite{Liu2022OnER}.
+
+That makes the Alphastar method unlike how a human would play the game, and creates issues since Starcraft 2 replays are only playable on the patch it was created at, and there other methods to get around this. This experiment will be closer to a true reinforcement
+learning methodology here, though limited. One important distinction to make in this experiment however, is even when there is the capability of fluctuating skill level against a player, in the training process that is not being saved. The model needs to know how 
+to perform at the best of its capabilities regardless of the opponent, which means it would need to be capable of performing at best, as well as fluctuating to lower levels.
+
+\subsection{Games}
+In order to train the agents, both will be trained over 1000 games versus a random agent. The games will be run at 128 times the normal speed, otherwise this would take days or weeks. Pysc2 works by expecting agents to have a step method to make a decisions 
+move to the next frame of the game. There is also the stipulation that the game will not last longer then 20 minutes. This is to prevent an agent from getting itself into a position where it cannot lose and just staying in place. Rewards also have to be determined
+due to how the game works. So winning is associated with a 1, a tie is associated with 0, and a loss as -1. These have to be propagated into the actions to determine how successful they are. Then the agent and the models associated need a strategy to learn.
+
+Rewards here are determined by Starcraft II api that pysc2 pulls that is based on a combination of resources gathered, units trained, buildings built, and units killed. \cite{vinyals2017starcraft}
+
+
+\subsection{Parameters and Learning}
+To deal with the problem of an agent choosing to focus on tieing, due to that being an easier goal to reach, there has to be an element of randomness and a reduction in the rewards being received to accurately reduce some actions having more weight. For example,
+training an army of marines at the base but never attacking would lead to a tie every time and guarantee some level of rewards. A level of randomness, exploration, needs to be added to further decrease the odds of that happening. The DQN was specifically prone to
+the issue of always tying, as a few things would have such a high weighted action. To combat it in the DQN specifically, there is, in additional step to increment epsilon, allowing it to change and fluctuate, some episodes would have a high epsilon causing 
+exploration to take priority over exploitation, and vise versa, so that actions later in the game would be weighted as well. 
+
+This also requires careful tuning of the learning rate, and surprisingly batch size with a replay buffer. For training purposes, the replay buffer holds a history of the steps of the game for DQN, and the batch size determines how many of that replay buffer will
+be used for training. This can add significant randomness due to the level of steps that need to be recorded, as it could train on, for example, 256 steps that all recorded do nothing, which as to our previous example, can lead to after building an army, to not 
+attack. This makes both batch size for training, and maximum replay buffer to see how long to hold steps other parameters to determine learning. 

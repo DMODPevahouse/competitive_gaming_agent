@@ -1,0 +1,55 @@
+% Main file for the thesis
+% Author: David Pevahouse
+
+\documentclass[a4paper, 11pt]{article}
+\input{setup}
+\title{Competitive Reinforcement Learning Gaming Agent}
+\author{David Pevahouse}
+\begin{document}
+
+%THE UNFORTUNATE TITLE PAGE THAT NEEDS TO BE INCLUDED
+\input{title}
+\newpage
+\maketitle
+\begin{abstract}
+    Deep reinforcement models in gaming is not entirely new, and in fact has performed quite well on many occasions, with Alphastar being one of the main contenders for high performance\cite{starcraft_unplugged}. This model was capable of overcoming
+    99.6 percent of players, achieving one of the highest ranks with both and online and offline Reinforcement learning model. One avenue that has not been explored as deeply however, is using a model to be around the skill level of the opponent providing
+    fun and challenging experience to a player regardless of the skill of the player. Most video games today still rely on a typical Easy, Medium, Hard difficulty level which ends up causing problems for both the low end of the spectrum and high end, meaning
+    overly difficulty for the bottom players, and to easy for the higher skilled. The goal of this research is to prove the viability of a highly trained Reinforcement Model that's primary objective is not winning but giving a challenge to the opposing agent. This
+    paper intends to focus on the novelty of an agent that changes its skill level to challenge its opponent but not to win at every chance.
+\setstretch{1}
+\end{abstract}
+\setcounter{page}{1}
+
+%INTRODUCTION
+\hypersetup{linkcolor=blue}
+\input{sections/1 intro}
+%PREVIOUS LITERATURE
+\input{sections/2 Previous Research}
+%BACKGROUND
+\input{sections/3 Environment and Agent}
+%DATA
+\input{sections/4 Training Methodology}
+\input{sections/5 results}
+\input{sections/6 future}
+\input{sections/7 conclusion}
+\newpage
+\input{sections/8 Acknowledgements}
+\newpage
+
+%REFRENCES
+\titleformat{\section}{\normalfont\huge\bfseries}{\thesection}{1em}{} 
+\newpage
+
+\addcontentsline{toc}{section}{References} %Adds the reference to the Table of Contents
+\bibliography{bibliography}
+\newpage
+
+%APPENDICES
+\appendix
+\setcounter{page}{1} %Restarts page counting to 1
+\pagenumbering{roman} %Differentiates the appendix page numbers from the main article
+
+\titleformat{\section}{\centering\normalfont\normalsize\bfseries}{Appendix \thesection: }{0em}{}
+\input{appendix/appendix_tables}
+\end{document}

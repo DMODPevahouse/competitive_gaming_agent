@@ -1,0 +1,37 @@
+%------ SETUP OF THE DOCUMENT ------%
+%This part of the document sets up the document and makes it easier to read the main.tex file
+%------ ********************* ------%
+\usepackage[margin = 25mm]{geometry} %
+\usepackage{graphicx} % Required for inserting images
+\usepackage[toc,page]{appendix}
+\usepackage[english=usenglishmax]{hyphsubst} 
+\usepackage[hyphens]{url}
+\usepackage{amsmath, amssymb, setspace, float, subcaption, caption, booktabs, pdflscape, dcolumn, titlesec, tocloft, comment, xcolor, longtable, blindtext, rotating, lipsum}
+\usepackage[flushleft]{threeparttable}
+%\usepackage[round, numbers, authoryear]{natbib}
+\usepackage[numbers]{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{bashful}
+
+
+\hypersetup{
+     colorlinks   = true, %
+     citecolor    = blue, 
+     urlcolor = blue, 
+    linkcolor = black
+}
+
+\graphicspath{{figures/}}
+
+%CHANGE SECTION STYLE
+\titleformat{\section}{\normalfont\fontsize{16pt}{20pt}\bfseries}{\thesection}{1.0em}{} %bfseries makes the headings bold
+\titleformat{\subsection}{\normalfont\normalsize\bfseries}{\thesubsection}{0.5em}{} %itshape makes the headings in italics
+\titleformat{\subsubsection}{\normalfont\normalsize\itshape}{\thesubsubsection}{0.5em}{}
+
+%TABLE OF CONTENTS FIXING
+\renewcommand*\contentsname{CONTENTS} %Change name
+\setcounter{tocdepth}{2} %How many subsections are visible, 1 is only section headings, 3 include subsubsections
+
+\bibliographystyle{apalike} %closest to LUSEM Harvard referencing guide

@@ -1,0 +1,19 @@
+\section{Previous Research}
+\label{sec:Previous Research}
+As previously mentioned, Starcraft 2 has been a prime target for previous research in the field of Reinforcement learning with plenty of sources diving into trying to create the best model\cite{starcraft_unplugged}\cite{liu2021mAS}\cite{liu2021mASreport}\cite{vinyals2017starcraft}.
+These typically focused on a specific component of this problem, which there are many. Pysc2 was created to give an environment for the community to collectively access the games controls quickly and efficiently, which sets up the environment and state for 
+reinforcement learning\cite{vinyals2017starcraft}, which will be used in this research and explained further later on. This placed the ground work for the most successful model in Starcraft 2 to day, Alphastar\cite{starcraft_unplugged} using both offline and
+online learning and providing a good ceiling for what is capable. While Alphastar was developed by a team of highly skilled developers, and plenty of hardware to train that is not available to everyone, which using a lighter weight model\cite{liu2021mASreport}.
+This was further expanded in creating a version not tied to being trained on specific replays while continuing to be light weight\cite{Liu2022OnER}. 
+
+All this to show that Starcraft 2 is rich for the exploration of the world of Reinforcement learning, due to the difficulty of the problem which will be expanded upon later. To build upon this research is a tall task, but the goal is to take it to the next level
+to be used practically by not just Starcraft 2, but potentially take the concepts and apply to any game for a scaling and competitive difficulty to be applicable to a much larger range of players. 
+
+Other research centered around the idea of a changing difficulty agent is a thesis from Robin Lievrouw, centered around single player Dynamic Difficulty Adjusting (DDA)\cite{lievrouw_applying_2020}. Here there was an extensive study done on the game Space Invaders by 
+determining instead of an easy, medium, hard, difficulty range if these were less hard and fast rules but more fluctuating between a beginner reinforcement learning, to an advance. There was a study done by humans in determining satisfaction and along with that
+the average Q level of these models as they were not aiming for the highest result in this specific example. 
+
+However, this case is more similar to a report done at the Institute of Electronics and Informatics Engineering of Aveiro from the University of Aveiro\cite{reis_automatic_2023}. This study takes it to the next level, and was shown at the IEEE 2023 Conference of 
+Games. The focus here is instead of DDA, taking it to multiplayer dynamic difficulty adjusting (MDDA). The difference is slight but does matter. The goal of DDA was for single player games making the environment of the game be flexible with the difficulty in scaling to 
+the player, whereas MDDA focuses on games where the opponents are other players so it would be an RL agent as the opposing player. This sounds easier at first due to limiting it to an agent instead of an environment, but the difficulty comes with the agent having
+the same decisions as a player does which happens to be extensive as this research will show later. 
